@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 const regularInter = readFileSync(
   `${__dirname}/../fonts/Inter-Regular.woff2`
@@ -103,6 +103,7 @@ interface ParsedRequest {
   recovered?: number;
   deaths?: number;
   lastUpdate?: string;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   dailyCases: any[];
   width: number;
   height: number;
@@ -133,42 +134,40 @@ export function getHtml(parsedReq: ParsedRequest) {
   </head>
   <body>
   
-  ${
-    dailyCases.length > 0
+  ${dailyCases.length > 0
       ? `  <!-- width, height and stroke-width attributes must be defined on the target SVG -->
     <svg class="sparkline black" width="${width}" height="${height}" stroke-width="4" style="position: absolute; z-index:-1; opacity:0.5;"></svg>
     <svg class="sparkline green" width="${width}" height="${height}" stroke-width="2" style="position: absolute; z-index:-1; opacity:0.5; top: ${height -
-          Math.floor(
-            (recovered / confirmed) * height
-          )}px;" stroke-dasharray="5,5"></svg>
+      Math.floor(
+        (recovered / confirmed) * height
+      )}px;" stroke-dasharray="5,5"></svg>
     <svg class="sparkline red" width="${width}" height="${height}" stroke-width="4" style="position: absolute; z-index:-1; opacity:0.5; top: ${height -
-          Math.floor((deaths / confirmed) * height)}px;" ></svg>
+      Math.floor((deaths / confirmed) * height)}px;" ></svg>
     <svg class="sparkline orange" width="${width}" height="${height}" stroke-width="4" style="position: absolute; z-index:-1; opacity:0.5; top: ${height -
-          Math.floor(
-            (dailyCases.slice(-1)[0].otherLocations / confirmed) * height
-          )}px;"></svg>
+      Math.floor(
+        (dailyCases.slice(-1)[0].otherLocations / confirmed) * height
+      )}px;"></svg>
     
     <script>
     
     const svgs = document.querySelectorAll(".sparkline")
     sparkline.sparkline(svgs[0], [${dailyCases
-      .map(d => d.totalConfirmed)
-      .join(", ")}, ${confirmed}]);
+        .map(d => d.totalConfirmed)
+        .join(", ")}, ${confirmed}]);
     svgs[1].setAttribute("height", Math.floor(${recovered}/${confirmed} * ${height}))
     sparkline.sparkline(svgs[1], [100,100,100]);
     svgs[2].setAttribute("height", Math.floor(${deaths}/${confirmed} * ${height}))
     sparkline.sparkline(svgs[2], [${dailyCases
-      .map(d => d.deaths.total || 0)
-      .join(", ")}]);
-    svgs[3].setAttribute("height", Math.floor(${
-      dailyCases.slice(-1)[0].otherLocations
-    }/${confirmed} *  ${height}))
+        .map(d => d.deaths.total || 0)
+        .join(", ")}]);
+    svgs[3].setAttribute("height", Math.floor(${dailyCases.slice(-1)[0].otherLocations
+      }/${confirmed} *  ${height}))
     sparkline.sparkline(svgs[3], [${dailyCases
-      .map(d => d.otherLocations || 0)
-      .join(", ")}]);
+        .map(d => d.otherLocations || 0)
+        .join(", ")}]);
     </script>`
       : ""
-  }
+    }
       <div class="wrapper">
         <div class="data-wrapper font-inter" style="font-weight: bold; font-size: 2rem; justify-content: flex-start; display: flex; flex-direction: column;align-items: flex-start; flex-grow: 0;">
           <div>
@@ -189,33 +188,30 @@ export function getHtml(parsedReq: ParsedRequest) {
           <div class="data">
             <div class="heading font-inter">Confirmed</div>
             <div class="value font-inter">${formatNumber(confirmed)}</div>
-            ${
-              dailyCases.length > 0
-                ? `<div class="heading font-inter" style="font-size: 1.25rem;background: orange;color: white;line-height: 1.5;padding: 0 0.5rem;"><b style="margin: 0;">${
-                    formatNumber(dailyCases.slice(-1)[0].otherLocations)
-                  }</b> outside China <b style="margin: 0;">(${
-                    Math.trunc(
-                      (dailyCases.slice(-1)[0].otherLocations / confirmed) * 100
-                    )
-                  }%)</b></div>`
-                : ""
-            }
+            ${dailyCases.length > 0
+      ? `<div class="heading font-inter" style="font-size: 1.25rem;background: orange;color: white;line-height: 1.5;padding: 0 0.5rem;"><b style="margin: 0;">${formatNumber(dailyCases.slice(-1)[0].otherLocations)
+      }</b> outside China <b style="margin: 0;">(${Math.trunc(
+        (dailyCases.slice(-1)[0].otherLocations / confirmed) * 100
+      )
+      }%)</b></div>`
+      : ""
+    }
           </div>
 
           <div class="data">
             <div class="heading font-inter">Recovered</div>
             <div class="value font-inter" style="color:green;">${formatNumber(recovered)}</div>
             <div class="heading font-inter" style="font-size: 1.25rem;background: green;color: white;line-height: 1.5;padding: 0 0.5rem;"><b style="margin: 0;">${Math.trunc(
-              (recovered / confirmed) * 100
-            )}%</b> recovery rate</div>
+      (recovered / confirmed) * 100
+    )}%</b> recovery rate</div>
           </div>
 
           <div class="data">
             <div class="heading font-inter">Deaths</div>
             <div class="value font-inter" style="color:red;">${formatNumber(deaths)}</div>
             <div class="heading font-inter" style="font-size: 1.25rem;background: red;color: white;line-height: 1.5;padding: 0 0.5rem;"><b style="margin: 0; ">${Math.trunc(
-              (deaths / confirmed) * 100
-            )}%</b> fatality rate</div>
+      (deaths / confirmed) * 100
+    )}%</b> fatality rate</div>
           </div>
         </div>
       </div>

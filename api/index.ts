@@ -1,4 +1,4 @@
-import { NowResponse } from "@now/node";
+import type { NowResponse } from "@now/node";
 
 export default async (_, response: NowResponse) => {
   // const [confirmed, recovered, deaths, lastUpdate] = await Promise.all([
@@ -33,6 +33,6 @@ export default async (_, response: NowResponse) => {
       pattern: "https://covid19.mathdro.id/api/countries/[country]",
       example: "https://covid19.mathdro.id/api/countries/USA",
     },
-    status: "not maintained. DM @mathdroid if you want to take over",
+    status: "for study purpose only",
   });
 };

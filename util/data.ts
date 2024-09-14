@@ -25,6 +25,7 @@ export const normalizeKeys = object => {
     .filter(idKeyFilter)
     .reduce((previous, [currentKey, currentValue]) => {
       return {
+        // biome-ignore lint/performance/noAccumulatingSpread: <explanation>
         ...previous,
         [pascalSnakeToCamel(currentKey)]: currentValue
       };
@@ -52,14 +53,12 @@ export const getIso3Code = update => {
 };
 
 export const extractSingleValue = features =>
-  (features &&
-    features[0] &&
-    features[0].attributes &&
-    features[0].attributes.value) ||
+  (features?.[0]?.attributes?.value) ||
   0;
 
 const isEmpty = obj => {
   for (const key in obj) {
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
     if (obj.hasOwnProperty(key)) {
       return false;
     }
@@ -103,13 +102,13 @@ export const fetchFeatures = async (url, query = {}) => {
     data.features &&
     data.features.length === 1000
     ? [
-        ...data.features,
-        ...(await fetchFeatures(url, {
-          ...query,
-          //@ts-ignore
-          resultOffset: (query.resultOffset || 0) + 1000
-        }))
-      ]
+      ...data.features,
+      ...(await fetchFeatures(url, {
+        ...query,
+        //@ts-ignore
+        resultOffset: (query.resultOffset || 0) + 1000
+      }))
+    ]
     : data.features;
 };
 

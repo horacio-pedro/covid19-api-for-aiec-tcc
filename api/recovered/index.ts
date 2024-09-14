@@ -1,4 +1,4 @@
-import { NowResponse, NowRequest } from "@now/node";
+import type { NowResponse, NowRequest } from "@now/node";
 import {
   fetchFeatures,
   attributeSpreader,
@@ -10,7 +10,7 @@ import { queryRecovered } from "../../util/query";
 import { getEndpoint } from "../../util/endpoints";
 
 export default async (request: NowRequest, response: NowResponse) => {
-  const shouldGroupByCountryRegion = request.query["byCountry"] === "true";
+  const shouldGroupByCountryRegion = request.query.byCountry === "true";
   const endpoint = getEndpoint(
     shouldGroupByCountryRegion
       ? "countryRegion"

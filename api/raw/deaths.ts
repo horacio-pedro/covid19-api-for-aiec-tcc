@@ -1,4 +1,4 @@
-import { NowResponse } from "@now/node";
+import type { NowResponse } from "@now/node";
 import qs from "qs";
 
 import { endpoints } from "../../util/endpoints";

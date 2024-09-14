@@ -1,4 +1,4 @@
-import { launch, Page } from "puppeteer-core";
+import { launch, type Page } from "puppeteer-core";
 import { getOptions } from "./options";
 
 let _page: Page | null;
@@ -16,8 +16,8 @@ async function getPage(isDev: boolean) {
 export async function getScreenshot(
   url: string,
   isDev: boolean,
-  width: number = 1200,
-  height: number = 627
+  width = 1200,
+  height = 627
 ) {
   const page = await getPage(isDev);
   await page.setViewport({ width, height });

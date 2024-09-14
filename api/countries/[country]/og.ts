@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@now/node";
+import type { NowRequest, NowResponse } from "@now/node";
 
 const isDev = process.env.NOW_REGION === "dev1";
 

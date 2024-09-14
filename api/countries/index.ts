@@ -1,4 +1,4 @@
-import { NowResponse } from "@now/node";
+import type { NowResponse } from "@now/node";
 
 export default async (_, res: NowResponse) => {
   // const availableCountries = (

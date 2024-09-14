@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@now/node";
+import type { NowRequest, NowResponse } from "@now/node";
 
 export default async (req: NowRequest, response: NowResponse) => {
   // try {

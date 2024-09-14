@@ -1,4 +1,4 @@
-import { NowResponse } from "@now/node";
+import type { NowResponse } from "@now/node";
 import unfetch from "isomorphic-unfetch";
 import withRetry from "@zeit/fetch-retry";
 import { dailyUrl } from "../../util/cacheurl";

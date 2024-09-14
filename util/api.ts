@@ -19,7 +19,7 @@ import { getIsoDateFromUnixTime } from "./date";
 
 const getRecoveredUS = async () => {
   return (await fetchFeatures(endpoints.casesCounty, queryConfirmed()))
-    .filter(d => d.attributes["Country_Region"] === "US")
+    .filter(d => d.attributes.Country_Region === "US")
     .map(d => d.attributes.Recovered);
 };
 
@@ -66,14 +66,14 @@ export const getLastUpdate = async (countryName?: string) => {
 export const getConfirmedGraph = async (resultOffset = 0) => {
   const apiResult = (
     await fetchFeatures(
-      `https://services9.arcgis.com/N9p5hsImWXAccRNI/arcgis/rest/services/Nc2JKvYFoAEOFCG5JSI6/FeatureServer/4/query`,
+      "https://services9.arcgis.com/N9p5hsImWXAccRNI/arcgis/rest/services/Nc2JKvYFoAEOFCG5JSI6/FeatureServer/4/query",
       {
-        f: `json`,
-        where: `(UID <> 840) AND (Confirmed<>0)`,
+        f: "json",
+        where: "(UID <> 840) AND (Confirmed<>0)",
         returnGeometry: false,
-        spatialRel: `esriSpatialRelIntersects`,
-        outFields: `*`,
-        orderByFields: `Last_Update asc`,
+        spatialRel: "esriSpatialRelIntersects",
+        outFields: "*",
+        orderByFields: "Last_Update asc",
         resultOffset,
         resultRecordCount: 1000,
         cacheHint: true
@@ -126,6 +126,7 @@ export const getDailyCases = async () => {
           0);
 
       return {
+        // biome-ignore lint/performance/noAccumulatingSpread: <explanation>
         ...acc,
         [cur.date]: {
           // cur: [...((acc[cur.date] && acc[cur.date].cur) || []), cur],
@@ -203,6 +204,7 @@ export const getDailyCases = async () => {
       };
     }, {})
   );
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   return result.map(([reportDate, data]: [string, any]) => ({
     ...data,
     reportDate

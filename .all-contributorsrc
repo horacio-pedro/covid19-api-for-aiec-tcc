@@ -1,0 +1,52 @@
+{
+  "projectName": "covid-19-api",
+  "projectOwner": "mathdroid",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "mathdroid",
+      "name": "Odi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3748658?v=4",
+      "profile": "https://mathdro.id/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "k1m0ch1",
+      "name": "Yahya Fadhlulloh Al-Fatih",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5756522?v=4",
+      "profile": "https://github.com/k1m0ch1",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "spiritbro1",
+      "name": "spiritbro1",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62529025?v=4",
+      "profile": "https://bit.ly/resumerino",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "YogaSakti",
+      "name": "Imperial Owl",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24309806?v=4",
+      "profile": "https://github.com/YogaSakti",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

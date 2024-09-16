@@ -1,5 +1,5 @@
 {
-  "alias": "covid19.mathdro.id",
+  "alias": "covid19-api-for-aiec-tcc.vercel.app",
   "headers": [
     {
       "source": "/(.*)",

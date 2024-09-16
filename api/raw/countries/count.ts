@@ -10,7 +10,7 @@ const endpoint = endpoints.casesCountryRegion;
 const query = createCountQuery("OBJECTID");
 
 export default async (_, res: NowResponse) => {
-  const response = await fetcher(`${endpoint}?${qs.stringify(query)}`);
-  const data = await response.json();
-  res.json(data);
+	const response = await fetcher(`${endpoint}?${qs.stringify(query)}`);
+	const data = await response.json();
+	res.json(data);
 };

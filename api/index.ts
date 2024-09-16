@@ -1,4 +1,4 @@
-import type { NowResponse } from "@now/node";
+import type { VercelResponse } from "@vercel/node";
 
 import {
 	getTotalConfirmed,
@@ -7,7 +7,7 @@ import {
 	getLastUpdate
 } from "../util/api";
 
-export default async (_, response: NowResponse) => {
+export default async (_, response: VercelResponse) => {
 	const [confirmed, recovered, deaths, lastUpdate] = await Promise.all([
 		getTotalConfirmed(),
 		getTotalRecovered(),

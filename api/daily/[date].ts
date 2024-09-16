@@ -1,4 +1,4 @@
-import type { NowRequest, NowResponse } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import fetch from "isomorphic-unfetch";
 import { parse } from "csv-parse/sync";
 import { normalizeKeys } from "../../util/data";
@@ -21,7 +21,7 @@ const fetchCSVByDate = async (date: Date) => {
 	return raw;
 };
 
-export default async (request: NowRequest, response: NowResponse) => {
+export default async (request: NowRequest, response: VercelResponse) => {
 	const { date } = request.query;
 
 	if (Array.isArray(date) || !date) {

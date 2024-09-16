@@ -1,8 +1,8 @@
-import type { NowRequest, NowResponse } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import withRetry from "@zeit/fetch-retry";
 import unfetch from "isomorphic-unfetch";
 const fetch = withRetry(unfetch);
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
 	try {
 		const result = await fetch(status);
 		const badge = await result.json();

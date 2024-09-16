@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 import {
 	fetchFeatures,
@@ -10,7 +10,7 @@ import { getEndpoint } from "../../../util/endpoints";
 import { queryRecovered } from "../../../util/query";
 import { getCountryName } from "../../../util/countries";
 
-export default async (req: NowRequest, response: NowResponse) => {
+export default async (req: VercelRequest, response: VercelResponse) => {
 	try {
 		const country = getCountryName(req.query.country as string);
 		response.json(

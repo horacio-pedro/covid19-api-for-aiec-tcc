@@ -1,9 +1,9 @@
-import type { NowRequest, NowResponse } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import withRetry from "@zeit/fetch-retry";
 import unfetch from "isomorphic-unfetch";
 import sharp from "sharp";
 const fetch = withRetry(unfetch);
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
 	try {
 		const width = Number.parseInt(req.query.width as string, 10) || 1200;
 		const height = Number.parseInt(req.query.height as string, 10) || 627;

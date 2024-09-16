@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 import globalHandler from "../../index";
 import {
@@ -8,7 +8,7 @@ import {
 	getLastUpdate
 } from "../../../util/api";
 
-export default async (req: NowRequest, response: NowResponse) => {
+export default async (req: VercelRequest, response: VercelResponse) => {
 	try {
 		const country = req.query.country as string;
 		if (typeof country === "undefined") {

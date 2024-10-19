@@ -1,6 +1,6 @@
 # COVID-19 API for AIEC TCC
 
-No longer maintaining the official deployment. Please fork this repo and use it for your own purpose.
+Faculdade AIEC.
 
 ## Routes
 

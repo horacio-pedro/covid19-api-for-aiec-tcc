@@ -1,4 +1,4 @@
-import type { NowResponse } from "@now/node";
+import type { VercelResponse } from "@vercel/node";
 import qs from "qs";
 
 import { endpoints } from "../../util/endpoints";
@@ -9,7 +9,7 @@ const endpoint = endpoints.casesCounty;
 
 const query = createSumQuery("Deaths");
 
-export default async (_, res: NowResponse) => {
+export default async (_, res: VercelResponse) => {
 	const response = await fetcher(`${endpoint}?${qs.stringify(query)}`);
 	const data = await response.json();
 	res.json(data);

@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { getHtml } from "../../../util/template";
 import { writeTempFile, pathToFileURL } from "../../../util/file";
 import { getScreenshot } from "../../../util/chromium";
@@ -12,7 +12,7 @@ import { getCountryName } from "../../../util/countries";
 
 const isDev = process.env.NOW_REGION === "dev1";
 
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
 	try {
 		const country = req.query.country as string;
 		const width = Number.parseInt(req.query.width as string, 10) || 1200;

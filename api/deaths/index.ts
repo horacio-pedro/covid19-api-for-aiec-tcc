@@ -1,4 +1,4 @@
-import type { NowRequest, NowResponse } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { getEndpoint } from "../../util/endpoints";
 import {
 	fetchFeatures,
@@ -9,7 +9,7 @@ import {
 } from "../../util/data";
 import { queryDeaths } from "../../util/query";
 
-export default async (request: NowRequest, response: NowResponse) => {
+export default async (request: NowRequest, response: VercelResponse) => {
 	const shouldGroupByCountryRegion = request.query.byCountry === "true";
 	const endpoint = getEndpoint(
 		shouldGroupByCountryRegion

@@ -1,4 +1,4 @@
-import type { NowResponse } from "@now/node";
+import type { VercelResponse } from "@vercel/node";
 
 import { countries, iso3, aliases } from "../../util/countries";
 import {
@@ -11,7 +11,7 @@ import {
 import { getEndpoint } from "../../util/endpoints";
 import { queryConfirmed } from "../../util/query";
 
-export default async (_, res: NowResponse) => {
+export default async (_, res: VercelResponse) => {
 	const availableCountries = (
 		await fetchFeatures(getEndpoint("countryRegion"), queryConfirmed())
 	)

@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import qs from "qs";
 
 import { endpoints } from "../../../util/endpoints";
@@ -7,7 +7,7 @@ import { createSortQuery } from "../__util/query";
 
 const endpoint = endpoints.casesOverTime;
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req: VercelRequest, res: VercelResponse) => {
 	const resultOffset =
 		typeof req.query.resultOffset === "string"
 			? Number.parseInt(req.query.resultOffset, 10)

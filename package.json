@@ -8,6 +8,7 @@
     "start:cache": "tsc && node cache/dist/cache/index.js"
   },
   "dependencies": {
+    "@vercel/node": "^3.2.14",
     "@zeit/fetch-retry": "^5.0.1",
     "chrome-aws-lambda": "^10.1.0",
     "csv-parse": "^5.5.6",
@@ -22,7 +23,6 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-typescript": "^7.24.7",
-    "@now/node": "^1.8.5",
     "@types/jest": "^29.5.13",
     "@types/node": "^22.5.5",
     "@types/qs": "^6.9.16",

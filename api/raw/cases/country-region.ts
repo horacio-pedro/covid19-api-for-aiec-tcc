@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import qs from "qs";
 
 import { endpoints } from "../../../util/endpoints";
@@ -11,7 +11,7 @@ import {
 
 const endpoint = endpoints.casesCountryRegion;
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req: VercelRequest, res: VercelResponse) => {
 	try {
 		// Extract and parse the resultOffset query parameter, default to 0 if not provided or invalid
 		const resultOffset =

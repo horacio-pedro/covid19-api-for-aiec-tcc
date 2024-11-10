@@ -1,4 +1,4 @@
-import type { NowResponse, NowRequest } from "@now/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 import globalHandler from "../../index";
 import {
@@ -8,7 +8,7 @@ import {
 	getLastUpdate
 } from "../../../util/api";
 
-export default async (req: NowRequest, response: NowResponse) => {
+export default async (req: VercelRequest, response: VercelResponse) => {
 	try {
 		const country = req.query.country as string;
 		if (typeof country === "undefined") {
@@ -24,15 +24,15 @@ export default async (req: NowRequest, response: NowResponse) => {
 		response.json({
 			confirmed: {
 				value: confirmed,
-				detail: `https://covid19-api-for-aiec-tcc.134.255.177.30.sslip.io/api/countries/${country}/confirmed`
+				detail: `https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries/${country}/confirmed`
 			},
 			recovered: {
 				value: recovered,
-				detail: `https://covid19-api-for-aiec-tcc.134.255.177.30.sslip.io/api/countries/${country}/recovered`
+				detail: `https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries/${country}/recovered`
 			},
 			deaths: {
 				value: deaths,
-				detail: `https://covid19-api-for-aiec-tcc.134.255.177.30.sslip.io/api/countries/${country}/deaths`
+				detail: `https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries/${country}/deaths`
 			},
 			lastUpdate
 		});

@@ -18,27 +18,27 @@ export default async (_, response: VercelResponse) => {
 	response.json({
 		confirmed: {
 			value: confirmed,
-			detail: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/confirmed"
+			detail: "https://covid19-api-for-aiec-tcc.vercel.app/api/confirmed"
 		},
 		recovered: {
 			value: recovered,
-			detail: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/recovered"
+			detail: "https://covid19-api-for-aiec-tcc.vercel.app/api/recovered"
 		},
 		deaths: {
 			value: deaths,
-			detail: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/deaths"
+			detail: "https://covid19-api-for-aiec-tcc.vercel.app/api/deaths"
 		},
-		dailySummary: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/daily",
+		dailySummary: "https://covid19-api-for-aiec-tcc.vercel.app/api/daily",
 		dailyTimeSeries: {
-			pattern: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/daily/[dateString]",
-			example: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/daily/2-14-2020"
+			pattern: "https://covid19-api-for-aiec-tcc.vercel.app/api/daily/[dateString]",
+			example: "https://covid19-api-for-aiec-tcc.vercel.app/api/daily/2-14-2020"
 		},
-		image: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/og",
+		image: "https://covid19-api-for-aiec-tcc.vercel.app/api/og",
 		source: "https://github.com/mathdroid/covid19",
-		countries: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries",
+		countries: "https://covid19-api-for-aiec-tcc.vercel.app/api/countries",
 		countryDetail: {
-			pattern: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries/[country]",
-			example: "https://covid19-api-for-aiec-kqf2p6vxu-horacio-pedros-projects.vercel.app/api/countries/USA"
+			pattern: "https://covid19-api-for-aiec-tcc.vercel.app/api/countries/[country]",
+			example: "https://covid19-api-for-aiec-tcc.vercel.app/api/countries/USA"
 		},
 		lastUpdate
 	});
